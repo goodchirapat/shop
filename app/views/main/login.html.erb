@@ -1,0 +1,9 @@
+
+<%= form_with url:main_create_path, data: {turbo:false} do |f| %>
+    <%=f.label:username %>
+    <%=f.text_field:login %>
+    <br>
+    <%=f.label:password %>
+    <%=f.password_field:password %>
+    <%= f.submit:OK %>
+<% end %>

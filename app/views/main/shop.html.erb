@@ -1,0 +1,21 @@
+<style>
+table, th, td{
+    border:1px solid black;
+}
+</style>
+<table>
+    <th>name</th>
+    <th>price</th>
+    <th>stock</th>
+    <th>Buy</th>
+    <% @u.items.each do |s| %>
+        <tr>
+            <td><%= s.name %></td>
+            <td><%= s.price %></td>
+            <td><%= s.stock %></td>
+            <% if session[:logged_in] %>
+                <td><%= button_to "Buy", main_buy_path, params:{item:s.id, from:params[:id]} %></td>
+            <% end %>
+        </tr>
+    <%end%>
+</table>

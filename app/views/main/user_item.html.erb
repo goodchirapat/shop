@@ -1,0 +1,22 @@
+<style>
+table, th, td{
+    border:1px solid black;
+}
+</style>
+<table>
+    <th>name</th>
+    <th>price</th>
+    <th>stock</th>
+    <th>Edit</th>
+    <th>Delete</th>
+    <% User.where(id:session[:id]).first.items.each do |s| %>
+        <tr>
+            <td><%= s.name %></td>
+            <td><%= s.price %></td>
+            <td><%= s.stock %></td>
+            <td><%= link_to 'Edit', '/items/'+s.id.to_s+'/edit'  %></td>
+            <td><%= button_to "Delete", s, method: :delete %></td>
+        </tr>
+    <%end%>
+</table>
+<%=link_to 'NEW', '/items/new'  %>
